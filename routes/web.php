@@ -8,14 +8,18 @@ Route::get('/', function () {
 });
 
 Route::get('/join', function () {
-    // $userWithOrders = DB::table('users')
+    // $userWithOrders = DB::table('users') //inner join
     //     ->join('orders', 'users.id', '=', 'orders.user_id')
     //     ->select('users.*', 'orders.*')
     //     ->get();
-    $userWithOrders = DB::table('users')
-        ->leftJoin('orders', 'users.id', '=', 'orders.user_id')
-        ->select('users.name', 'orders.product_name')
-        ->get();
+    // $userWithOrders = DB::table('users') // left join
+    //     ->leftJoin('orders', 'users.id', '=', 'orders.user_id')
+    //     ->select('users.name', 'orders.product_name')
+    //     ->get();
+    // $orderWithOrders = DB::table('orders') // right join
+    //     ->rightJoin('users', 'users.id', '=', 'orders.user_id')
+    //     ->select('orders.product_name', 'users.name')
+    //     ->get();
 
     dd($userWithOrders);
 });
