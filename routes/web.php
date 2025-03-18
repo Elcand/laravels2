@@ -20,6 +20,14 @@ Route::get('/join', function () {
     //     ->rightJoin('users', 'users.id', '=', 'orders.user_id')
     //     ->select('orders.product_name', 'users.name')
     //     ->get();
+    // $fullOuterJoin = DB::table('users')
+    //     ->leftJoin('orders', 'orders.id', '=', 'orders.user_id')
+    //     ->select('users.name', 'orders.product_name')
+    //     ->unionall(
+    //         DB::table('users')
+    //             ->rightJoin('orders', 'orders.user_id', '=', 'orders.user_id')
+    //             ->select('users.name', 'orders.product_name')
+    //     )->get();
 
-    dd($userWithOrders);
+    // dd($fullOuterJoin);
 });
