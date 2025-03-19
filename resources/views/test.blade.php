@@ -9,10 +9,18 @@
 </head>
 
 <body>
-    <div class="">
+    {{-- <div class="">
         @foreach ($users as $user)
             <h4>{{ $user->name }}</h4>
-            <p>Address : {{$user->address->country}}</p>
+            <p>Address : {{ $user->address->country }}</p>
+            <hr>
+        @endforeach
+    </div>
+    <br> --}}
+    <div class="">
+        @foreach ($address as $address)
+            <h4>{{ $address->country }}</h4>
+            <p>User : {{ $address->user->name . ' - ' . $address->user->email }}</p>
             <hr>
         @endforeach
     </div>
