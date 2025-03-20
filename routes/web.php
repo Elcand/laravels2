@@ -2,6 +2,7 @@
 
 use App\Models\Address;
 use App\Models\Post;
+use App\Models\Tag;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
@@ -17,21 +18,28 @@ Route::get('/users', function () {
 });
 
 Route::get('/posts', function () {
-    // Post::insert([
+    // Tag::insert([
     //     [
-    //         'user_id' => 1,
-    //         'name' => 'Alam',
+    //         'name' => 'Laravel',
     //     ],
     //     [
-    //         'user_id' => 2,
-    //         'name' => 'Nael',
+    //         'name' => 'JS',
     //     ],
     //     [
-    //         'user_id' => 3,
-    //         'name' => 'apin',
+    //         'name' => 'PHP',
     //     ],
     // ]);
 
-    $posts = Post::with('user')->get();
+    $post = Post::first();
+    $tag = Tag::first();
+
+    $post->tags()->sync([2, 3]);
+
+    $posts = Post::all();
     return view('post', compact('posts'));
+});
+
+Route::get('/tags', function () {
+    $tags = Tag::all();
+    return view('tags', compact('tags'));
 });
